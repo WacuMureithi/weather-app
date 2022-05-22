@@ -22,12 +22,10 @@ function formatDate(timestamp) {
   return `${day}  ${hours}:${minutes}`;
 }
 
-function overviewTemperature(response) {
-  console.log(response);
-  let cityElement = document.querySelector("#overview-city");
-  cityElement.innerHTML = response.data.name;
+function changeWeatherData(response) {
+console.log(response.data)
 
-  let iconElement = document.querySelector("#icon");
+ let iconElement = document.querySelector("#icon");
   newIconElement = (response.data.weather[0].icon);
   iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${newIconElement}@2x.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
@@ -46,9 +44,14 @@ function overviewTemperature(response) {
 
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
+
+  let cityElement = document.querySelector("#overview-city");
+  cityElement.innerHTML = response.data.name;
+
+
 }
 
-let city = "stockholm";
+function search(city){
 let apiKey = "e82dee1dc88604a246e7660f6c7461c7";
 let apiURL =
   "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -56,5 +59,29 @@ let apiURL =
   "&appid=" +
   apiKey +
   "&units=metric";
+  axios.get(apiURL).then(changeWeatherData);
+}
 
-axios.get(apiURL).then(overviewTemperature);
+function handleSubmit(event) {
+event.preventDefault()
+let cityInputElement= document.querySelector("#city-input")
+search(cityInputElement.value);
+console.log(cityInputElement.value)
+}
+
+let formElement =document.querySelector("#search-form")
+formElement.addEventListener("submit", handleSubmit)
+
+
+
+
+  
+
+
+
+
+    
+
+
+
+
