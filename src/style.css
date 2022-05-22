@@ -2,8 +2,8 @@ body {
 font-family: 'Roboto Flex', sans-serif;
 }
 
-h1 {
-   
+.weatherApp {
+   border: 1px auto;
 }
 
 ul {
