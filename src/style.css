@@ -5,7 +5,7 @@ font-family: 'Roboto Flex', sans-serif;
 h1{
     color: 878787;
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 28.8px;
     text-align: left;
     margin-bottom: 0;
@@ -35,4 +35,22 @@ li {
    padding: 20px;
    border-radius: 10px;
 }
+.overview {
+    margin-bottom: 20px;
+}
 
+.weather-temperature img{
+    padding: 0;
+    margin-right: 5px;
+    height: 64px;
+    width: 64px;
+}
+.weather-temperature strong {
+    font-size: 64px;
+    line-height: 1;
+    font-weight: 500;
+}
+.weather-temperature .units{
+   font-size: 16px;
+    
+}
