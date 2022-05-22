@@ -27,7 +27,10 @@ li {
 li first-letter{
 text-transform: capitalize;
 }
-
+.search-form-wrapper{
+    padding: 15px;
+     margin-bottom: 20px;
+}
 .weather-app-wrapper{
    max-width: 720px;
    margin: 0 auto; 
