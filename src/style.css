@@ -27,6 +27,10 @@ li {
 li first-letter{
 text-transform: capitalize;
 }
+
+a{
+    text-decoration: none;
+}
 .search-form-wrapper{
     padding: 15px;
      margin-bottom: 20px;
@@ -62,4 +66,13 @@ text-transform: capitalize;
 .weather-temperature .units{
    font-size: 16px;
     
+}
+
+.weather-temperature .active {
+    color: black;
+    cursor: default;
+}
+
+.weather-temperature .active:hover{
+    text-decoration: none;
 }

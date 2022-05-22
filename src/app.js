@@ -34,7 +34,8 @@ console.log(response.data)
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
 
   let temperatureElement = document.querySelector("#overview-temperature");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemp = (response.data.main.temp);
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
 
   let descriptionElement = document.querySelector("#overview-description");
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -69,9 +70,38 @@ search(cityInputElement.value);
 console.log(cityInputElement.value)
 }
 
+function convertFarenheit(event) {
+event.preventDefault()
+
+let temperatureElement = document.querySelector("#overview-temperature")
+//add active when celsius is active
+celsiusLink.classList.remove("active")
+farenheitLink.classList.add("active");
+let farenheitTemp = (celsiusTemp * 9) / 5 + 32;
+temperatureElement.innerHTML = Math.round(farenheitTemp)
+
+}
+
+function convertCelsius(event) {
+  event.preventDefault();
+  let celsiusTemperatureElement = document.querySelector("#overview-temperature");
+  //add active when celsius is active
+  celsiusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
+  celsiusTemperatureElement.innerHTML = Math.round(celsiusTemp);
+}
+let celsiusTemp = null;
+
 let formElement =document.querySelector("#search-form")
 formElement.addEventListener("submit", handleSubmit)
 
+let farenheitLink =document.querySelector("#farenheit-link")
+farenheitLink.addEventListener("click", convertFarenheit)
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", convertCelsius);
+
+search("Stockholm");
 
 
 
