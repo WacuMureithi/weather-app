@@ -27,6 +27,7 @@ li {
 li first-letter{
 text-transform: capitalize;
 }
+
 .weather-app-wrapper{
    max-width: 720px;
    margin: 0 auto; 
