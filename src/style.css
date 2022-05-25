@@ -28,9 +28,6 @@ li first-letter{
 text-transform: capitalize;
 }
 
-a{
-    text-decoration: none;
-}
 .search-form-wrapper{
     padding: 15px;
      margin-bottom: 20px;

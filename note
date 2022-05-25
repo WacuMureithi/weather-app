@@ -36,3 +36,5 @@
          </div>
      </div>
     </div>
+
+    let cityEntry = document.querySelector("#city");
