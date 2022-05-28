@@ -20,7 +20,43 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
 
   return `${day}  ${hours}:${minutes}`;
+
 }
+
+function displayforecast(){
+  let forecastElement= document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+
+  let forecastdays = ["Mon", "Tue", "Wed"];
+  forecastdays.forEach(function(day){
+  forecastHTML =
+    forecastHTML +
+    `
+        <div class="col-2">
+            <div class="weather-forecast-day">
+                         ${day}
+            </div>
+            
+            <div class="weather-icon">
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" width="70">
+            </div>
+
+            <div class="weather-forecast-temperature">
+              <span id="weather-forecast-temperature-max">18°</span>
+              |
+              <span class="weather-forecast-temperature-min">12°</span>
+              </div>
+      </div>
+  `;
+
+  })
+  ;
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML ;
+
+  }
 
 function changeWeatherData(response) {
 console.log(response.data)
@@ -31,24 +67,27 @@ console.log(response.data)
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   let dateElement = document.querySelector("#date");
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  
 
   let temperatureElement = document.querySelector("#overview-temperature");
-  celsiusTemp = (response.data.main.temp);
-  temperatureElement.innerHTML = Math.round(celsiusTemp);
-
+  
   let descriptionElement = document.querySelector("#overview-description");
-  descriptionElement.innerHTML = response.data.weather[0].description;
-
+  
   let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = response.data.main.humidity;
-
+  
   let windElement = document.querySelector("#wind");
-  windElement.innerHTML = Math.round(response.data.wind.speed);
-
+ 
   let cityElement = document.querySelector("#overview-city");
+  
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
   cityElement.innerHTML = response.data.name;
-
+  
+ 
+  celsiusTemp = response.data.main.temp;
 
 }
 
@@ -91,17 +130,16 @@ function convertCelsius(event) {
   celsiusTemperatureElement.innerHTML = Math.round(celsiusTemp);
 }
 let celsiusTemp = null;
-
 let formElement =document.querySelector("#search-form")
-formElement.addEventListener("submit", handleSubmit)
-
 let farenheitLink =document.querySelector("#farenheit-link")
-farenheitLink.addEventListener("click", convertFarenheit)
-
 let celsiusLink = document.querySelector("#celsius-link");
+
+formElement.addEventListener("submit", handleSubmit);
+farenheitLink.addEventListener("click", convertFarenheit);
 celsiusLink.addEventListener("click", convertCelsius);
 
 search("Stockholm");
+displayforecast();
 
 
 
