@@ -3,8 +3,8 @@ font-family: 'Roboto Flex', sans-serif;
 }
 
 h1{
-    color: 878787;
-    font-size: 24px;
+    color: red;
+    font-size: 28px;
     font-weight: 500;
     line-height: 28.8px;
     text-align: left;
@@ -50,8 +50,7 @@ text-transform: capitalize;
 }
 
 .weather-temperature img{
-    padding: 0;
-    margin-right: 5px;
+    padding: 0;    
     height: 64px;
     width: 64px;
 }
