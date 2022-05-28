@@ -161,7 +161,7 @@ formElement.addEventListener("submit", handleSubmit);
 farenheitLink.addEventListener("click", convertFarenheit);
 celsiusLink.addEventListener("click", convertCelsius);
 
-search("Stockholm");
+search("Cape Town");
 
 
 
