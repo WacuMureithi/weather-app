@@ -1,11 +1,11 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
-  if (hours < 10) {
+  if (hours > 9) {
     hours = `0${hours}`;
   }
   let minutes = date.getMinutes();
-  if (minutes < 10) {
+  if (minutes > 10) {
     minutes = `0${minutes}`;
   }
   let days = [
@@ -54,7 +54,7 @@ function displayforecast(response){
             </div>
             
             <div class="weather-icon">
-                    <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="50">
+                    <img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="50">
             </div>
 
             <div class="weather-forecast-temperature">
@@ -75,11 +75,9 @@ function displayforecast(response){
 
 function getForecast(coordinates){
 
-  console.log(coordinates);
   let apiKey = "e82dee1dc88604a246e7660f6c7461c7";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=metric`;
 
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayforecast);
 }
 
@@ -87,12 +85,11 @@ function changeWeatherData(response) {
 
  let iconElement = document.querySelector("#icon");
   newIconElement = (response.data.weather[0].icon);
-  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${newIconElement}@2x.png`);
+  iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${newIconElement}@2x.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   let dateElement = document.querySelector("#date");
   
-
   let temperatureElement = document.querySelector("#overview-temperature");
   
   let descriptionElement = document.querySelector("#overview-description");
@@ -132,7 +129,7 @@ function handleSubmit(event) {
 event.preventDefault()
 let cityInputElement= document.querySelector("#city-input")
 search(cityInputElement.value);
-console.log(cityInputElement.value)
+
 }
 
 function convertFarenheit(event) {
