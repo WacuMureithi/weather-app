@@ -1,11 +1,11 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
-  if (hours > 9) {
+  if (hours <= 9) {
     hours = `0${hours}`;
   }
   let minutes = date.getMinutes();
-  if (minutes > 10) {
+  if (minutes <= 9) {
     minutes = `0${minutes}`;
   }
   let days = [
