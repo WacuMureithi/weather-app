@@ -152,6 +152,7 @@ function convertCelsius(event) {
   farenheitLink.classList.remove("active");
   celsiusTemperatureElement.innerHTML = Math.round(celsiusTemp);
 }
+
 let celsiusTemp = null;
 let formElement =document.querySelector("#search-form")
 let farenheitLink =document.querySelector("#farenheit-link")

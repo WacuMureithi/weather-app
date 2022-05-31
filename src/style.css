@@ -53,11 +53,15 @@ text-transform: capitalize;
     padding: 0;    
     height: 64px;
     width: 64px;
+   
 }
+
+
 .weather-temperature strong {
     font-size: 64px;
     line-height: 1;
-    font-weight: 500;
+    font-weight: 500;    
+    
 }
 .weather-temperature .units{
    font-size: 16px;
