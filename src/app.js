@@ -99,7 +99,9 @@ function changeWeatherData(response) {
   let windElement = document.querySelector("#wind");
  
   let cityElement = document.querySelector("#overview-city");
-  
+
+  celsiusTemp = response.data.main.temp;
+
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   temperatureElement.innerHTML = Math.round(celsiusTemp);
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -108,7 +110,7 @@ function changeWeatherData(response) {
   cityElement.innerHTML = response.data.name;
   
  
-  celsiusTemp = response.data.main.temp;
+  
 
   getForecast(response.data.coord)
 
